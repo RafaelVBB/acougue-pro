@@ -1,6 +1,6 @@
 package com.rafael.acougue.repository;
 
-import com.rafael.acougue.domain.Product;
+import com.rafael.acougue.domain.Sale;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, UUID> {
+public interface SaleRepository extends JpaRepository<Sale, UUID> {
 
-    Optional<Product> findBySku(String sku);
+    Optional<Sale> findByExternalId(String externalId);
 
-    List<Product> findByNameContainingIgnoreCase(String name);
+    List<Sale> findByTerminalId(UUID terminalId);
 }
