@@ -1,12 +1,12 @@
 package com.rafael.acougue.service;
 
-import com.rafael.acougue.dto.ProdutoDTO;
+import com.rafael.acougue.dto.ProductDTO;
 import java.util.List;
 
 /**
  * Contrato base para operações com produtos.
  */
-public interface ProdutoService {
+public interface ProductService {
 
-    List<ProdutoDTO> listar();
+    List<ProductDTO> list();
 }
