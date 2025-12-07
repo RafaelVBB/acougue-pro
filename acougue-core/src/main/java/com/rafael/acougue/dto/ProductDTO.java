@@ -5,9 +5,6 @@ import java.time.Instant;
 import java.util.UUID;
 import lombok.Data;
 
-/**
- * DTO básico para dados de produto.
- */
 @Data
 public class ProductDTO {
 
