@@ -1,7 +1,7 @@
 package com.rafael.acougue.controller;
 
-import com.rafael.acougue.dto.ProductDTO;
-import com.rafael.acougue.service.ProductService;
+import com.rafael.acougue.dto.TerminalDTO;
+import com.rafael.acougue.service.TerminalService;
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -18,28 +18,28 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping("/api/products")
-public class ProductController {
+@RequestMapping("/api/terminals")
+public class TerminalController {
 
-    private final ProductService productService;
+    private final TerminalService terminalService;
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    public TerminalController(TerminalService terminalService) {
+        this.terminalService = terminalService;
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> list() {
-        return ResponseEntity.ok(productService.findAll());
+    public ResponseEntity<List<TerminalDTO>> list() {
+        return ResponseEntity.ok(terminalService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> findById(@PathVariable UUID id) {
-        return ResponseEntity.ok(productService.findById(id));
+    public ResponseEntity<TerminalDTO> findById(@PathVariable UUID id) {
+        return ResponseEntity.ok(terminalService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO dto) {
-        ProductDTO created = productService.create(dto);
+    public ResponseEntity<TerminalDTO> create(@Valid @RequestBody TerminalDTO dto) {
+        TerminalDTO created = terminalService.create(dto);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/{id}")
             .buildAndExpand(created.getId())
@@ -48,13 +48,13 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update(@PathVariable UUID id, @Valid @RequestBody ProductDTO dto) {
-        return ResponseEntity.ok(productService.update(id, dto));
+    public ResponseEntity<TerminalDTO> update(@PathVariable UUID id, @Valid @RequestBody TerminalDTO dto) {
+        return ResponseEntity.ok(terminalService.update(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
-        productService.delete(id);
+        terminalService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
