@@ -20,6 +20,6 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> list() {
-        return ResponseEntity.ok(productService.list());
+        return ResponseEntity.ok(productService.findAll());
     }
 }
