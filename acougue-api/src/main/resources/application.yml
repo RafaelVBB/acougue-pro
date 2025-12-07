@@ -1,3 +1,8 @@
 spring:
   application:
     name: acougue-api
+
+jwt:
+  secret: ${JWT_SECRET:change-me-super-secret-key-change-me}
+  access-token-expiration: 3600000
+  refresh-token-expiration: 604800000
